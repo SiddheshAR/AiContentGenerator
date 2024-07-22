@@ -8,7 +8,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import {CopyToClipboard} from 'react-copy-to-clipboard';
+  // import {CopyToClipboard} from 'react-copy-to-clipboard';
   interface PROPS{
     data:any
   }
@@ -40,7 +40,7 @@ function HistoryTable({data}:PROPS) {
     </TableRow>
   </TableHeader>
   <TableBody>
-  {data?.map((e,index)=>
+  {data?.map((e:any,index:any)=>
     <TableRow key={index}>
     <TableCell className="text-[12px]">{e?.templateSlug}</TableCell>
     <TableCell>
@@ -51,11 +51,11 @@ function HistoryTable({data}:PROPS) {
     <TableCell>{e?.createdAt}</TableCell>
     <TableCell>{wordCount(e?.aiResponse)}</TableCell>
     <TableCell className="">
-                <CopyToClipboard text={e?.aiResponse} >
-                  <button className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">
+                {/* <CopyToClipboard text={e?.aiResponse} > */}
+                  <button onClick={()=>navigator.clipboard.writeText(e?.aiResponse)} className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">
                     Copy
                   </button>
-                </CopyToClipboard>
+                {/* </CopyToClipboard> */}
     </TableCell>
   </TableRow>)}
   </TableBody>

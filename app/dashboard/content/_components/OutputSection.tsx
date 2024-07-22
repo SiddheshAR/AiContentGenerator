@@ -4,7 +4,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import { Button } from '@/components/ui/button';
 import { CopyIcon } from 'lucide-react';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+// import {CopyToClipboard} from 'react-copy-to-clipboard';
 interface props{
   aiOutput:string
 }
@@ -21,12 +21,14 @@ function OutputSection({aiOutput}:props) {
       <div className='bg-white'>
         <div className='flex flex-row justify-between p-4'>
             <h2 className='text-primary text-xl font-semibold'>Your Result:</h2>
-            <CopyToClipboard text={aiOutput}>
+            {/* <CopyToClipboard text={aiOutput}> */}
+              <button onClick={()=>navigator.clipboard.writeText(aiOutput)}>
                 <div className='flex flex-row gap-1 cursor-pointer'>
                     <CopyIcon  className=''/>
                     <p>Copy</p>
                 </div>
-              </CopyToClipboard>
+                </button>
+              {/* </CopyToClipboard> */}
         </div>
       <Editor
         ref={editorRef}

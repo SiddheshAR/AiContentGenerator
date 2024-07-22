@@ -14,8 +14,7 @@ interface PROPS {
 
 function FormSection({SelectedTemplate,SetFormInput,loading}:PROPS) {
   const [formData,setFormData] = useState({});
-  const handleInputChange = (event)=>{
-
+  const handleInputChange = (event:any)=>{
       const {name,value} = event.target
       setFormData({
         ...formData,
@@ -32,7 +31,7 @@ function FormSection({SelectedTemplate,SetFormInput,loading}:PROPS) {
   return (
     <div className='border rounded-md shadow-sm p-5 bg-white'>
       <div className='flex flex-col gap-3'>
-        <Image src={SelectedTemplate?.icon} height={70} width={70} alt="logo"/>
+        <Image src={`${SelectedTemplate?.icon}`} height={70} width={70} alt="logo"/>
         <h2 className='text-2xl font-semibold text-purple-800'>{SelectedTemplate?.name}</h2>
       </div>
       <p className='text-[14px] text-gray-700 '>
