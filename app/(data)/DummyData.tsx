@@ -1,4 +1,3 @@
-
 export interface FORM{
     label:string;
     field:string;
@@ -216,5 +215,3 @@ const Template:TEMPLATE[]= [
     ]
 }
     ];
-
-export default Template;

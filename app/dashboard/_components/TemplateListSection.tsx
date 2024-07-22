@@ -19,7 +19,7 @@ export interface FORM{
   required?:boolean
 }
 
-const TemplateListSection = ({userSearchInput}:string) => {
+const TemplateListSection = ({userSearchInput}:any) => {
   const [templateList,setTemplateList] = useState<TEMPLATE[]>(Template);
 
 

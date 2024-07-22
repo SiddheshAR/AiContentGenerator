@@ -4,7 +4,7 @@ import SearchSection from './_components/SearchSection'
 import TemplateListSection from './_components/TemplateListSection'
 
 const page = () => {
-  const [userSearchInput,onSearchInput] = useState<string>('');
+  const [userSearchInput,onSearchInput] = useState<any>('');
   return (
     <div>
         <SearchSection onSearchInput={onSearchInput}/>
