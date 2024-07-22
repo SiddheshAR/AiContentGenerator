@@ -42,18 +42,22 @@ function CreditUsage() {
   // }
   useEffect(()=>{
     const getData=async()=>{
-      let results = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, userEmail));
-      WordCounter(results);
+      if(userEmail){
+        let results = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, userEmail));
+        WordCounter(results);
+      }
     }
     getData();
   },[user])
   useEffect(()=>{
     const getData=async()=>{
-      let results = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, userEmail));
-      WordCounter(results);
+      if(userEmail){
+        let results = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, userEmail));
+        WordCounter(results);
+      }
     }
     getData();
-  },[loadUsage&&user])
+  },[loadUsage,user])
 
   return (
     <div className=' md:m-5'>
