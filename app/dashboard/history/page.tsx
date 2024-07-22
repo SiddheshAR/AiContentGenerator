@@ -21,10 +21,15 @@ const page =() => {
                if (!user) return; // Ensure user exists
         
                let userEmail = user?.primaryEmailAddress?.emailAddress;
-               let results = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, userEmail));
+               if(userEmail){
+                let results = await db.select().from(AIOutput).where(eq(AIOutput.createdBy, userEmail));
+                setHistoryData(results);
+               }else{
+                console.log("Error Fetching History.")
+               }
                // console.log(results);
                // Update state with safetched data
-               setHistoryData(results);
+
              };
             fetchUserHistory();
             //  console.log(historyData);
